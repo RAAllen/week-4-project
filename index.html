@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.1.0.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/scripts.js"></script>
+    <title>Veggie Pizza Palace</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="header">
+        <h1>Veggie Pizza Palace</h1>
+      </div>
+
+      <div class="row" id="delivery-input">  <!--start of row1--->
+        <div class="col-sm-6">
+          <label for="delivery-info">Please enter your delivery information:</h2>
+          <form id="delivery-info">
+            <div class="form-group">
+              <label for="first-name">First Name:</label>
+              <input type="text" class="form-control first-name" placeholder="Paula">
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name:</label>
+              <input type="text" class="form-control last-name" placeholder="Pizza-Lover">
+            </div>
+            <div class="address">
+              <div class="form-group">
+                <label for="street">Street</label>
+                <input type="text" class="form-control street" placeholder="ex. 123 Pizza Place">
+              </div>
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control city" placeholder="ex. Pizzaville">
+              </div>
+              <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" class="form-control state" placeholder="ex. PA">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-lg btn-success">Submit your delivery information</button>
+          </form>
+        </div>
+
+        <div class="col-sm-6">
+          <div id="show-contact">
+            <h3>Your entered delivery details:</h3>
+            <p>First name: <span class="full-name"></span></p>
+            <p>Address: <span class="address"></span></p>
+          </div>
+        </div>
+      </div>  <!--end of row1--->
+
+      <div class="row" id="pizza-options">  <!--start of row2--->
+        <form id="pizzas" class="col-sm-6">
+          <div class="form-group">
+            <label for="pizza-size-group">Select your pizza size:</label>
+            <select class="form-control" id="pizza-size">
+              <option selected disabled>Choose here:</option>
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+              <option>Extra Large</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="toppings-group">Select your toppings:</label>
+            <select class="form-control" id="toppings">
+              <option selected disabled>Choose here:</option>
+              <option>Mushrooms</option>
+              <option>Peppers</option>
+              <option>Onions</option>
+              <option>Roasted Garlic</option>
+              <option>Broccoli</option>
+              <option>Potatoes</option>
+              <option>Roasted Peppers</option>
+              <option>Pineapple</option>
+              <option>Olives</option>
+              <option>Eggplant</option>
+              <option>Tomatoes</option>
+            </select>
+          </div>
+          <span class="btn btn-lg btn-warning" id="add-pizza">Add a pizza to your order</span>
+          <button type="submit" class="btn btn-lg btn-success">Total my order</button>
+        </form>
+
+        <div class="col-sm-6">
+          <h3>Your entered pizzas:</h3>
+          <ul id="show-pizzas">
+          <ul>
+        </div>
+      </div>  <!--end of row2--->
+
+    </div>
+  </body>
+</html>
