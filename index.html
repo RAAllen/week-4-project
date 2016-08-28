@@ -51,7 +51,7 @@
           <div id="show-contact">
             <h3>Your entered delivery details:</h3>
             <p>Your Name: <span class="full-name"></span></p>
-            <p>Your Address: <span class="address"></span></p>
+            <p>Your Address: <span class="full-address"></span></p>
           </div>
         </div>
       </div>  <!--end of row1--->
@@ -68,31 +68,24 @@
               <option>Extra Large</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="toppings-group">Select your toppings:</label>
-            <select class="form-control" id="toppings">
-              <option selected disabled>Choose here:</option>
-              <option>Mushrooms</option>
-              <option>Peppers</option>
-              <option>Onions</option>
-              <option>Broccoli</option>
-              <option>Pineapple</option>
-              <option>Olives</option>
-              <option>Eggplant</option>
-            </select>
+
+          <div class="row">
+            <div class="form-group col-sm-9">
+              <label for="toppings-group">Select your toppings:</label>
+              <select class="form-control" id="toppings">
+                <option selected disabled>Choose here:</option>
+                <option>Mushrooms</option>
+                <option>Peppers</option>
+                <option>Onions</option>
+                <option>Broccoli</option>
+                <option>Pineapple</option>
+                <option>Olives</option>
+                <option>Eggplant</option>
+              </select>
+            </div>
+            <span class="btn btn-lg btn-warning col-sm-3" id="add-topping">Add Topping</span>
           </div>
-          <div class="form-group">
-            <label for="pizza-extras-group">Select additional modifiers at no extra cost:</label>
-            <select class="form-control" id="pizza-extras">
-              <option selected disabled>Choose here:</option>
-              <option>No Cheese</option>
-              <option>Light Cheese</option>
-              <option>Extra Cheese</option>
-              <option>No Sauce</option>
-              <option>Light Sauce</option>
-              <option>Extra Sauce</option>
-            </select>
-          </div>
+
           <span class="btn btn-lg btn-warning" id="add-pizza">Add a pizza to your order</span>
           <button type="submit" class="btn btn-lg btn-success">Total my order</button>
         </form>
