@@ -27,7 +27,7 @@ var Pizza = function(pizzaSize, allToppings){
 }
 
 Pizza.prototype.description = function(){
-  if(this.toppings.length === 0) {
+  if(this.toppings.length == 0) {
     return this.pizzaSize.name + " Pizza";
   }
   var toppingsDescription = "";
@@ -49,6 +49,22 @@ Pizza.prototype.cost = function(pizza){
   return cost;
 }
 
+var Order = function() {
+  this.pizzas = [];
+}
+
+Order.prototype.cost = function(pizza){
+  cost = 0;
+
+  for(var i = 0; i < this.pizzas.length; i++) {
+    var pizza = this.pizzas[i];
+    cost = cost + pizza.cost();
+  }
+  return cost;
+}
+
+var order = new Order();
+
 //User Logic
 
 $(document).ready(function(){
@@ -68,19 +84,36 @@ $(document).ready(function(){
     $("#print-street").text(inputtedStreet);
     $("#print-city").text(inputtedCity);
     $("#print-state").text(inputtedState);
-
   });
 
   $("form#pizzas").submit(function(event){
     event.preventDefault();
 
-    var inputtedSize = $("#pizza-size option:selected").text();
-    var checkboxes = document.querySelectorAll('input[name="' + topping + '"]:checked'), values = [];
-    Array.prototype.forEach.call(checkboxes, function(el) {
-        values.push(el.value);
-    return values;
+    var pizzaSizeOption = $("#pizza-size option:selected");
+    var pizzaSizeName = pizzaSizeOption.text();
+    var pizzaSizeCost = pizzaSizeOption.val();
+    if(pizzaSizeCost == "") {
+      alert("You must select a pizza size.");
+      return;
+    }
+    var pizzaSize = new PizzaSize(pizzaSizeName, parseInt(pizzaSizeCost));
+    var toppings = [];
+    var toppingCheckboxes = $("input[type='checkbox']:checked");
+
+    toppingCheckboxes.each(function(){
+      var toppingName = $(this).val();
+      toppings.push(new Topping(toppingName, 0));
     });
 
-  });
+    var pizza = new Pizza(pizzaSize, toppings);
+    order.pizzas.push(pizza);
+    $("#pizzas").empty();
 
+    for(var i = 0; i < order.pizzas.length; i++) {
+      var pizza = order.pizzas[i];
+      $("#pizzas").append("<li>" + pizza.description() + "</li>");
+    }
+
+    $("#pizza-cost").text("$" + order.cost().toFixed(2));
+  });
 });
