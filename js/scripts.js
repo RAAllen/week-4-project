@@ -11,20 +11,12 @@ var Address = function(streetAddress, cityAddress, stateAddress){
   this.stateAddress = stateAddress;
 }
 
- Name.prototype.fullName = function(){
-   return "<p>" + this.firstName + " " + this.lastName + "</p>"
- }
-
-Address.prototype.fullAddress = function(){
-  return "<ul>" + "<li>" + this.streetAddress + "</li>" + "<li>" + this.cityAddress + "</li>" + "<li>" + this.stateAddress + "</li>" + "</ul>"
-}
-
 var Pizza = function(pizzaSize, Toppings){
   this.pizzaSize = pizzaSize
-  this.Toppings = []
+  this.allToppings = []
 }
 
-var Toppings = function(){}
+var allToppings = function(){}
 
 Pizza.prototype.fullPizza = function(){
   return this.Toppings
@@ -46,15 +38,22 @@ $(document).ready(function(){
     var inputtedState = $("input.state").val();
     var newAddress = new Address(inputtedStreet, inputtedCity, inputtedState);
 
-    $(".full-name").text(newName.fullName());
-    $(".full-address").text(newAddress.fullAddress());
+    $(".full-name").append("<p>" + inputtedFirstName + " " + inputtedLastName + "</p>";
+    $(".full-address").append("<li>" + inputtedStreet + "</li>" + "<li>" + inputtedCity + "</li>" + "<li>" + inputtedState + "</li>");
 
   });
 
-  // $("form#pizzas").submit(function(event){
-  //   event.preventDefault();
-  //   $("")
-  //
-  //
-  // });
+  $("form#pizzas").submit(function(event){
+    event.preventDefault();
+    $("")
+
+    var checkboxes = document.querySelectorAll('input[name="' + toppings + '"]:checked'), values = [];
+    Array.prototype.forEach.call(checkboxes, function(el) {
+        values.push(el.value);
+    });
+    return values;
+    }
+
+  });
+
 });

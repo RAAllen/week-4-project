@@ -48,11 +48,16 @@
         </div>
 
         <div class="col-sm-6">
-          <div id="show-contact">
-            <h3>Your entered delivery details:</h3>
-            <p>Your Name: <span class="full-name"></span></p>
-            <p>Your Address: <span class="full-address"></span></p>
-          </div>
+          <h3>Your delivery details:</h3>
+          <h5>Your Name:</h5>
+          <div id="full-name"></div>
+          <h5>Your Address:</h5>
+          <ul id="full-address"></ul>
+          <h3>Your pizzas:</h3>
+          <ul id="pizzas">
+          </ul>
+          <h3>Your total:</h3>
+          <div id="pizza-cost"></div>
         </div>
       </div>  <!--end of row1--->
 
@@ -69,32 +74,43 @@
             </select>
           </div>
 
-          <div class="row">
-            <div class="form-group col-sm-9">
-              <label for="toppings-group">Select your toppings:</label>
-              <select class="form-control" id="toppings">
-                <option selected disabled>Choose here:</option>
-                <option>Mushrooms</option>
-                <option>Peppers</option>
-                <option>Onions</option>
-                <option>Broccoli</option>
-                <option>Pineapple</option>
-                <option>Olives</option>
-                <option>Eggplant</option>
-              </select>
-            </div>
-            <span class="btn btn-lg btn-warning col-sm-3" id="add-topping">Add Topping</span>
+          <div class="data">
+            <span>
+            <input name="topping" type="checkbox" value="Mushrooms"/>
+            <label for="topping">Mushrooms</label>
+            </span>
+
+            <span>
+            <input name="topping" type="checkbox" value="Peppers"/>
+            <label for="topping">Peppers</label>
+            </span>
+
+            <span>
+            <input name="topping" type="checkbox" value="Onions"/>
+            <label for="topping">Onions</label>
+            </span>
+
+            <span>
+            <input name="topping" type="checkbox" value="Broccoli"/>
+            <label for="topping">Broccoli</label>
+            </span>
+
+            <span>
+            <input name="topping" type="checkbox" value="Pineapple"/>
+            <label for="topping">Pineapple</label>
+            </span>
+
+            <span>
+            <input name="topping" type="checkbox" value="Olives"/>
+            <label for="topping">Olives</label>
+            </span>
+
+            <input type="button" onclick="alert(getCheckedCheckboxesFor('topping'));" class="btn btn-md btn-danger" value="Add your toppings."/>
           </div>
 
           <span class="btn btn-lg btn-warning" id="add-pizza">Add a pizza to your order</span>
           <button type="submit" class="btn btn-lg btn-success">Total my order</button>
         </form>
-
-        <div class="col-sm-6">
-          <h3>Your entered pizzas:</h3>
-          <ul id="show-pizzas">
-          <ul>
-        </div>
       </div>  <!--end of row2--->
 
     </div>
