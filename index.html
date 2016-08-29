@@ -50,9 +50,13 @@
         <div class="col-sm-6">
           <h3>Your delivery details:</h3>
           <h5>Your Name:</h5>
-          <div id="full-name"></div>
+          <p id="full-name"></p>
           <h5>Your Address:</h5>
-          <ul id="full-address"></ul>
+          <ul id="full-address">
+            <li id="print-street"></li>
+            <li id="print-city"></li>
+            <li id="print-state"></li>
+          </ul>
           <h3>Your pizzas:</h3>
           <ul id="pizzas">
           </ul>
@@ -67,10 +71,10 @@
             <label for="pizza-size-group">Select your pizza size:</label>
             <select class="form-control" id="pizza-size">
               <option selected disabled>Choose here:</option>
-              <option>Small</option>
-              <option>Medium</option>
-              <option>Large</option>
-              <option>Extra Large</option>
+              <option value="9">Small</option>
+              <option value="11">Medium</option>
+              <option value="13">Large</option>
+              <option value="15">Extra Large</option>
             </select>
           </div>
 
@@ -103,13 +107,10 @@
             <span>
             <input name="topping" type="checkbox" value="Olives"/>
             <label for="topping">Olives</label>
-            </span>
-
-            <input type="button" onclick="alert(getCheckedCheckboxesFor('topping'));" class="btn btn-md btn-danger" value="Add your toppings."/>
+          </span>
           </div>
 
           <span class="btn btn-lg btn-warning" id="add-pizza">Add a pizza to your order</span>
-          <button type="submit" class="btn btn-lg btn-success">Total my order</button>
         </form>
       </div>  <!--end of row2--->
 

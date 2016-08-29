@@ -27,6 +27,9 @@
 * _Allow the users to add additional pizzas on to their order._
 ..*Example Input: Small Pineapple Pizza, Large Broccoli Pizza.
 ..*Example Output: Small Pineapple Pizza, Large Broccoli Pizza.
+* _Allow the users to have their pizza priced._
+..*Example Input: Small Pineapple Pizza.
+..*Example Output: $12.00.
 * _Allow the users to have their orders totaled._
 ..*Example Input: Small Pineapple Pizza, Large Broccoli Pizza.
 ..*Example Output: $26.00.
