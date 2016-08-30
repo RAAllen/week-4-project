@@ -1,4 +1,4 @@
-//Business Logic
+// Business Logic
 
 var Name = function(firstName, lastName){
   this.firstName = firstName;
@@ -12,18 +12,23 @@ var Address = function(street, city, state){
 }
 
 var PizzaSize = function(name, cost) {
-  this.category = category;
+  this.name = name;
   this.cost = cost;
 }
 
 var Toppings = function(name, cost){
-  this.category = category;
+  this.name = name;
   this.cost = cost;
 }
 
-var Pizza = function(pizzaSize, allToppings){
+var Pizza = function(pizzaSize, toppings, cost){
   this.pizzaSize = pizzaSize;
   this.toppings = toppings;
+  this.cost = 0;
+}
+
+var Order = function() {
+  this.pizzas = [];
 }
 
 Pizza.prototype.description = function(){
@@ -49,13 +54,8 @@ Pizza.prototype.cost = function(pizza){
   return cost;
 }
 
-var Order = function() {
-  this.pizzas = [];
-}
-
 Order.prototype.cost = function(pizza){
   cost = 0;
-
   for(var i = 0; i < this.pizzas.length; i++) {
     var pizza = this.pizzas[i];
     cost = cost + pizza.cost();
@@ -92,17 +92,19 @@ $(document).ready(function(){
     var pizzaSizeOption = $("#pizza-size option:selected");
     var pizzaSizeName = pizzaSizeOption.text();
     var pizzaSizeCost = pizzaSizeOption.val();
-    if(pizzaSizeCost == "") {
+    if(pizzaSizeCost === "") {
       alert("You must select a pizza size.");
       return;
     }
+
     var pizzaSize = new PizzaSize(pizzaSizeName, parseInt(pizzaSizeCost));
+
     var toppings = [];
     var toppingCheckboxes = $("input[type='checkbox']:checked");
-
     toppingCheckboxes.each(function(){
-      var toppingName = $(this).val();
-      toppings.push(new Topping(toppingName, 0));
+      var toppingName = $(this.name);
+      var toppingCost = $(this.value);
+      toppings.push(new Topping(toppingName, toppingCost));
     });
 
     var pizza = new Pizza(pizzaSize, toppings);
