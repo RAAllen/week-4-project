@@ -104,7 +104,7 @@ $(document).ready(function(){
     toppingCheckboxes.each(function(){
       var toppingName = $(this.name);
       var toppingCost = $(this.value);
-      toppings.push(new Topping(toppingName, toppingCost));
+      toppings.push(toppingName, toppingCost);
     });
 
     var pizza = new Pizza(pizzaSize, toppings);
