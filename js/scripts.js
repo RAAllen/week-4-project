@@ -24,7 +24,7 @@ var Toppings = function(name, cost){
 var Pizza = function(pizzaSize, toppings, cost){
   this.pizzaSize = pizzaSize;
   this.toppings = toppings;
-  this.cost = 0;
+  this.cost;
 }
 
 var Order = function() {
@@ -102,9 +102,10 @@ $(document).ready(function(){
     var toppings = [];
     var toppingCheckboxes = $("input[type='checkbox']:checked");
     toppingCheckboxes.each(function(){
-      var toppingName = $(this.name);
-      var toppingCost = $(this.value);
-      toppings.push(toppingName, toppingCost);
+      var toppingName = $(this).attr("name");
+      var toppingCost = $(this).attr("value");
+      toppings.push(toppingName, parseInt(toppingCost));
+      console.log(toppings);
     });
 
     var pizza = new Pizza(pizzaSize, toppings);
