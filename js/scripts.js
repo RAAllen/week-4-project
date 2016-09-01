@@ -24,10 +24,12 @@ var Topping = function(name, cost){
 var Pizza = function(pizzaSize, toppings){
   this.pizzaSize = pizzaSize;
   this.toppings = toppings;
+  this.cost = 0;
 }
 
 var Order = function() {
   this.pizzas = [];
+  this.cost = 0;
 }
 
 Pizza.prototype.description = function(){
@@ -45,21 +47,20 @@ Pizza.prototype.description = function(){
   return this.pizzaSize.name + " " + toppingsDescription + " Pizza";
 }
 
-Pizza.prototype.cost = function(pizza){
-  var cost = this.pizzaSize.cost;
+Pizza.prototype.calculateCost = function(){
+  this.cost = this.pizzaSize.cost;
   for(var i = 0; i < this.toppings.length; i++) {
-    cost = cost + this.toppings[i].cost;
+    this.cost = this.cost + this.toppings[i].cost;
   }
-  return cost;
+  return this.cost;
 }
 
-Order.prototype.cost = function(pizza){
-  cost = 0;
+Order.prototype.calculateCost = function(){
   for(var i = 0; i < this.pizzas.length; i++) {
     var pizza = this.pizzas[i];
-    cost = cost + pizza.cost();
+    this.cost = this.cost + pizza.calculateCost();
   }
-  return cost;
+  return this.cost;
 }
 
 var order = new Order();
@@ -103,7 +104,7 @@ $(document).ready(function(){
     toppingCheckboxes.each(function(){
       var toppingName = $(this).attr("name");
       var toppingCost = $(this).attr("value");
-      toppings.push(var New Topping(toppingName, parseInt(toppingCost)));
+      toppings.push(new Topping(toppingName, parseInt(toppingCost)));
       console.log(toppings);
     });
 
@@ -116,6 +117,6 @@ $(document).ready(function(){
       $("#pizzas").append("<li>" + pizza.description() + "</li>");
     }
 
-    $("#pizza-cost").text("$" + order.cost().toFixed(2));
+    $("#pizza-cost").text("$" + order.calculateCost().toFixed(2));
   });
 });
