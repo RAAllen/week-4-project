@@ -16,15 +16,14 @@ var PizzaSize = function(name, cost) {
   this.cost = cost;
 }
 
-var Toppings = function(name, cost){
+var Topping = function(name, cost){
   this.name = name;
   this.cost = cost;
 }
 
-var Pizza = function(pizzaSize, toppings, cost){
+var Pizza = function(pizzaSize, toppings){
   this.pizzaSize = pizzaSize;
   this.toppings = toppings;
-  this.cost;
 }
 
 var Order = function() {
@@ -104,7 +103,7 @@ $(document).ready(function(){
     toppingCheckboxes.each(function(){
       var toppingName = $(this).attr("name");
       var toppingCost = $(this).attr("value");
-      toppings.push(toppingName, parseInt(toppingCost));
+      toppings.push(var New Topping(toppingName, parseInt(toppingCost)));
       console.log(toppings);
     });
 
