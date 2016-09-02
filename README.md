@@ -15,17 +15,35 @@
 * _Allow the users to enter their name and address they want the pizza delivered at._
 ..*Example Input: Patty Pizza 123 Pie Place Pizzaville, PA.
 ..*Example Output: Delivery to Patty Pizza 123 Pie Place Pizzaville, PA.
-* _Allow the users to select a size for their pizza._
+* _Allow the users to select a small pizza._
 ..*Example Input: Small.
 ..*Example Output: Small Pizza.
-* _Allow the users to select a topping for their pizza._
-..*Example Input: Pineapple.
+* _Allow the users to select a topping for a small pizza._
+..*Example Input: Small + Pineapple.
 ..*Example Output: Small Pineapple Pizza.
-* _Allow the users to add additional toppings._
+* _Allow the users to add more than one topping for a small pizza._
 ..*Example Input: Pineapple, Olives.
 ..*Example Output: Small Pineapple and Olive Pizza.
+* _Allow the users to select a medium pizza._
+..*Example Input: Medium.
+..*Example Output: Medium Pizza.
+* _Allow the users to select a topping for a Medium pizza._
+..*Example Input: Medium + Pineapple.
+..*Example Output: Medium Pineapple Pizza.
+* _Allow the users to add more than one topping for a Medium pizza._
+..*Example Input: Medium + Pineapple + Olives.
+..*Example Output: Medium Pineapple and Olive Pizza.
+* _Allow the users to select a large pizza._
+..*Example Input: Large.
+..*Example Output: Large Pizza.
+* _Allow the users to select a topping for a Large pizza._
+..*Example Input: Large + Pineapple.
+..*Example Output: Large Pineapple Pizza.
+* _Allow the users to add more than one topping for a Large pizza._
+..*Example Input: Large + Pineapple + Olives.
+..*Example Output: Large Pineapple and Olive Pizza.
 * _Allow the users to add additional pizzas on to their order._
-..*Example Input: Small Pineapple Pizza, Large Broccoli Pizza.
+..*Example Input: Small + Pineapple, Large + Broccoli.
 ..*Example Output: Small Pineapple Pizza, Large Broccoli Pizza.
 * _Allow the users to have their pizza priced._
 ..*Example Input: Small Pineapple Pizza.

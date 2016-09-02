@@ -1,3 +1,22 @@
 #full-address{
   list-style-type: none;
 }
+
+#pizzas{
+  list-style-type: none;
+}
+
+.header{
+  text-align: center;
+  border-width: medium;
+  border-style: double;
+  border-color: green;
+}
+
+h1{
+  font-size: 5em;
+}
+
+#delivery-input{
+  margin-top: 30px;
+}

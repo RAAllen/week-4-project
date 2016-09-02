@@ -114,7 +114,7 @@ $(document).ready(function(){
 
     for(var i = 0; i < order.pizzas.length; i++) {
       var pizza = order.pizzas[i];
-      $("#pizzas").append("<li>" + pizza.description() + "</li>");
+      $("#pizzas").append("<li>" + pizza.description() + "  " + pizza.calculateCost().toFixed(2) + "</li>");
     }
 
     $("#pizza-cost").text("$" + order.calculateCost().toFixed(2));
